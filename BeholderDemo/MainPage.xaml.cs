@@ -1,24 +1,26 @@
-﻿namespace BeholderDemo;
-
-using AndroidX.Lifecycle;
+﻿
+//using AndroidX.Lifecycle;
+using BeholderDemo.Models;
 using BeholderDemo.Services;
+using BeholderDemo.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using AuthenticationToken = Microsoft.Datasync.Client.AuthenticationToken;
 
+namespace BeholderDemo;
 public partial class MainPage : ContentPage
 {
-    private readonly MainViewModel viewModel;
+    //private readonly MainViewModel viewModel;
     public RemoteService remoteService { get; }
 
     public MainPage()
     {
         InitializeComponent();
-        TodoService = new RemoteTodoService(GetAuthenticationToken);
-        viewModel = new MainViewModel(this, TodoService);
-        BindingContext = viewModel;
+        remoteService = new RemoteService(GetAuthenticationToken);
+        //viewModel = new MainViewModel(remoteService);
+        //BindingContext = viewModel;
     }
     public IPublicClientApplication IdentityClient { get; set; }
     public async Task<AuthenticationToken> GetAuthenticationToken()
@@ -73,6 +75,12 @@ public partial class MainPage : ContentPage
             Token = result?.AccessToken ?? "",
             UserId = result?.Account?.Username ?? ""
         };
+    }
+
+    public void GetDomain(object sender, EventArgs e)
+    {
+        HealthLog log = remoteService.GetHealthDomainAsync(DomainEntry.Text).Result;
+        Domain.Text = log.Domain;
     }
 }
 

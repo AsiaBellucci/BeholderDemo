@@ -11,12 +11,12 @@ namespace BeholderDemo
         /// <summary>
         /// The base URI for the Datasync service.
         /// </summary>
-        public static string ServiceUri = "https://demo-datasync-quickstart.azurewebsites.net";
+        public static string ServiceUri = "https://app-databook-ccnl-dev.azurewebsites.net";
 
         /// <summary>
         /// The application (client) ID for the native app within Azure Active Directory
         /// </summary>
-        public static string ApplicationId = "210263d3-d41d-4f8b-8404-bb6e9ff70a93";
+        public static string ApplicationId = "eac9f8bb-1301-45da-90b8-d9e28ab3de55";
 
         /// <summary>
         /// The list of scopes to request

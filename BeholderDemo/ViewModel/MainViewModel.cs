@@ -13,11 +13,11 @@ namespace BeholderDemo.ViewModel
         public MainViewModel(RemoteService service)
         {
         }
-        public ICommand AddItemCommand
-            => new Command<Entry>(async (Entry entry) => await AddItemAsync(entry.Text));
-        public ICommand RefreshItemsCommand
-            => new Command(async () => await RefreshItemsAsync());
-        public ICommand SelectItemCommand
-            => new Command<TodoItem>(async (TodoItem item) => await UpdateItemAsync(item.Id, !item.IsComplete));
+        //public ICommand AddItemCommand
+        //    => new Command<Entry>(async (Entry entry) => await AddItemAsync(entry.Text));
+        //public ICommand RefreshItemsCommand
+        //    => new Command(async () => await RefreshItemsAsync());
+        //public ICommand SelectItemCommand
+        //    => new Command<TodoItem>(async (TodoItem item) => await UpdateItemAsync(item.Id, !item.IsComplete));
     }
 }
