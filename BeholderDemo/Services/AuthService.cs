@@ -29,6 +29,7 @@ namespace BeholderDemo.Services
                 result = await authenticationClient
                     .AcquireTokenInteractive(Constants.Scopes)
                     .WithPrompt(Prompt.ForceLogin)
+                    .WithTenantId("6998af00-286c-4e5e-8b3e-713471e8487f")
 #if ANDROID
                     .WithParentActivityOrWindow(Microsoft.Maui.ApplicationModel.Platform.CurrentActivity)
 #endif

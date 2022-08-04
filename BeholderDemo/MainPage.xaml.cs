@@ -15,11 +15,12 @@ namespace BeholderDemo;
 public partial class MainPage : ContentPage
 {
     public AuthService AuthService { get; }
+    public RemoteService remoteService { get; set; }
 
     public MainPage()
     {
         InitializeComponent();
-        
+        remoteService = new();
     }
 
     public async Task LoginAsync()
@@ -29,6 +30,7 @@ public partial class MainPage : ContentPage
         var token = result?.IdToken; // you can also get AccessToken if you need it
         if (token != null)
         {
+            remoteService.TokenString = token;
             Token.Text = token;
             var handler = new JwtSecurityTokenHandler();
             var data = handler.ReadJwtToken(token);
@@ -47,6 +49,12 @@ public partial class MainPage : ContentPage
     {
         LoginAsync();
         return;
+    }
+
+    public void GetDomain(object sender, EventArgs args)
+    {
+        remoteService.GetHealthDomainAsync(DomainEntry.Text);
+        DomainName.Text = remoteService.Domain;
     }
 }
 
