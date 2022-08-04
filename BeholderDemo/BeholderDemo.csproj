@@ -52,6 +52,7 @@
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
 	  <PackageReference Include="Microsoft.Datasync.Client" Version="5.0.9" />
 	  <PackageReference Include="Microsoft.Identity.Client" Version="4.45.0" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
 	</ItemGroup>
 
 </Project>

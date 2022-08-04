@@ -27,7 +27,7 @@
             </Entry>
             
             <Label
-                x:Name="Domain"
+                x:Name="Token"
                 Text=""
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Domain"
@@ -35,10 +35,10 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="LoginResultLabel"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="GetDomain"
+                Clicked="Login"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
