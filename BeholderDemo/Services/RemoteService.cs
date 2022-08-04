@@ -29,7 +29,7 @@ namespace BeholderDemo.Services
         public async Task GetHealthDomainAsync(string domainName)
         {
             HttpRequestMessage request = new();
-            request.Headers.Add("Authorization", TokenString);
+            request.Headers.Add("Authorization", $"Bearer {TokenString}");
             request.RequestUri = new Uri($"{Constants.ServiceUri}/api/HealthDomain/Get?key={domainName}");
             request.Method = HttpMethod.Get;
             try
