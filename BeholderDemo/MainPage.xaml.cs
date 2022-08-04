@@ -22,10 +22,10 @@ public partial class MainPage : ContentPage
         
     }
 
-    public void Login(object sender, EventArgs args)
+    public async Task LoginAsync()
     {
         var authService = new AuthService(); // most likely you will inject it in constructor, but for simplicity let's initialize it here
-        var result =  authService.LoginAsync(CancellationToken.None).Result;
+        var result =  await authService.LoginAsync(CancellationToken.None);
         var token = result?.IdToken; // you can also get AccessToken if you need it
         if (token != null)
         {
@@ -41,6 +41,12 @@ public partial class MainPage : ContentPage
                 LoginResultLabel.Text = stringBuilder.ToString();
             }
         }
+    }
+
+    public void Login(object sender, EventArgs args)
+    {
+        LoginAsync();
+        return;
     }
 }
 

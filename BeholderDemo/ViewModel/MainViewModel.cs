@@ -10,7 +10,7 @@ namespace BeholderDemo.ViewModel
 {
     public class MainViewModel
     {
-        public MainViewModel(RemoteService service)
+        public MainViewModel()
         {
         }
         //public ICommand AddItemCommand
